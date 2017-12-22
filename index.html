@@ -1,1 +1,36 @@
-Hello World
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>websocketd count example</title>
+    <style>
+      #count {
+        font: bold 20px arial;
+        margin: auto;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="count"></div>
+    <script src="jquery-2.0.3.min.js"></script>
+    <script>
+	  var data_cnt = 0;
+      var ws = new WebSocket('ws://192.168.1.88:8000');
+      ws.onopen = function() {
+        document.body.style.backgroundColor = '#cfc';
+      };
+      ws.onclose = function() {
+        document.body.style.backgroundColor = null;
+      };
+      ws.onmessage = function(event) {
+		data_cnt++;
+		var jsonObj = jQuery.parseJSON(event.data);
+		console.log(jsonObj.type, jsonObj.lon, jsonObj.lat);
+        document.getElementById('count').textContent = data_cnt + ": " + jsonObj.type + ":" + jsonObj.lat + " , " + jsonObj.lon;
+      };
+    </script>
+    
+  </body>
+</html>
