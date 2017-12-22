@@ -26,10 +26,11 @@
       };
       ws.onmessage = function(event) {
 		data_cnt++;
-		var jsonObj = jQuery.parseJSON(event.data);
-		console.log(jsonObj.type, jsonObj.lon, jsonObj.lat);
-        document.getElementById('count').textContent = data_cnt + ": " + jsonObj.type + ":" + jsonObj.lat + " , " + jsonObj.lon;
-      };
+		//var jsonObj = jQuery.parseJSON(event.data);
+		//console.log(jsonObj.type, jsonObj.lon, jsonObj.lat);
+        //document.getElementById('count').textContent = data_cnt + ": " + jsonObj.type + ":" + jsonObj.lat + " , " + jsonObj.lon;
+			document.getElementById('count').textContent = data_cnt;	
+		};
     </script>
     
   </body>
