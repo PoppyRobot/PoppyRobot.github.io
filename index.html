@@ -1,7 +1,30 @@
 <html>
-<head><title>test</title></head>
-<body> 
-<img align="middle" src="suse.jpg">
-Hello Suse
-</body>
+	<head>
+		<meta charset="utf-8">
+		<title>test</title>
+	</head>
+	<body>
+		<h1 align='center'>测试</h1>
+		<h3 align='center'>配置IP和端口</h3></p>
+		<div class="text" style=" text-align:center;">
+		<p><text>&nbsp&nbspIP:&nbsp&nbsp</text>	<input id="Ip" value='127.0.0.0'></p>
+		<p><text >Port:&nbsp</text><input id="Port" value='9527'></p>
+		<button type="button" style="background-color: #66B3FF;width: 76px;height: 36px;color: #CAFFFF" onclick="connectServer()">更&nbsp&nbsp新</button>
+		</div>
+
+		<p id="info"></p>
+
+		<script>
+		function connectServer() {
+			var ip   = document.getElementById("Ip").value;
+			var port = document.getElementById("Port").value;
+
+			connectTcp(ip, port);
+		}
+			
+		function connectTcp(ip, port){
+			document.getElementById("info").innerHTML = ip + ':' + port;
+			}
+		</script>
+	</body>
 </html>
